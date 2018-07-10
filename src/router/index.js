@@ -3,7 +3,7 @@ import Router from 'vue-router'
 
 const HelloWorld = () => import('@/components/HelloWorld')
 const Share = () => import('@/components/share/Share')
-const Demo1 = () => import('@/components/share/Demo1')
+const Basic = () => import('@/components/share/Basic')
 
 Vue.use(Router)
 
@@ -20,9 +20,9 @@ export default new Router({
       component: Share,
       children: [
         {
-          path: 'demo1',
-          name: 'demo1',
-          component: Demo1
+          path: 'basic',
+          name: 'Basic',
+          component: Basic
         }
       ]
     },
