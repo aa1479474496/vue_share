@@ -1,7 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
-import Demo1 from '@/components/share/Demo1'
+
+const HelloWorld = () => import('@/components/HelloWorld')
+const Share = () => import('@/components/share/Share')
+const Demo1 = () => import('@/components/share/Demo1')
 
 Vue.use(Router)
 
@@ -13,9 +15,16 @@ export default new Router({
       component: HelloWorld
     },
     {
-      path: '/demo1',
-      name: 'Demo1',
-      component: Demo1
-    }
+      path: '/share',
+      name: 'Share',
+      component: Share,
+      children: [
+        {
+          path: 'demo1',
+          name: 'demo1',
+          component: Demo1
+        }
+      ]
+    },
   ]
 })
