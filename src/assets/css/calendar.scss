@@ -1,0 +1,246 @@
+@charset "UTF-8";
+@function r( $px) {
+    @return $px*7.2/$designWidth+rem;
+}
+
+$designWidth: 750;
+*{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  text-decoration: none;
+  font-weight: normal;
+  background: transparent;
+  font-style: inherit;
+  list-style: none;
+  -webkit-tap-highlight-color:rgba(0,0,0,0);
+  -moz-tap-highlight-color:rgba(0,0,0,0);
+  -o-tap-highlight-color:rgba(0,0,0,0);
+  tap-highlight-color:rgba(0,0,0,0);
+}
+
+body{
+  overflow-x: hidden;
+  margin: auto;
+  font: r(24)/1.5 "Microsoft YaHei", arial, 微软雅黑, tahoma, 宋体, sans-serif;
+  
+}
+#app {
+    max-width: 720px;
+    margin: 0 auto;
+    z-index: 2;
+}
+.fl{
+  float: left;
+}
+.fr{
+  float:right;
+}
+.clearfix:before,
+.clearfix:after{
+  display: table;
+  content: " ";
+}
+.clearfix:after{
+  clear: both;
+}
+.colbbb {
+    color: #bbb;
+}
+.calendar-mask {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: #fff;
+    z-index: 99;
+    max-width: 720px;
+    margin: 0 auto;
+}
+.calendar-header {
+    padding: 0 r(32);
+    height: r(220);
+}
+.calendar-header-title {
+    position: relative;
+    padding: r(60) 0 r(80);
+    height: r(36);
+    line-height: r(36);
+    text-align:center;
+    font-size: r(36);
+    color:#333;
+}
+
+// .calendar-header-title .close{
+//   position: absolute;
+//   left: 0;
+//   top:r(63);
+//   display: block;
+//   width: r(30);
+//   height: r(30);
+//   padding-left:r(28);
+//   background: url("../img/cover_context_close.png") no-repeat right;
+//   background-size: 50%;
+// }
+.calendar-close,.calendar-sure {
+    padding: 0 r(36);
+    font-size: r(28);
+}
+.calendar-close {
+    color: #999;
+}
+.calendar-sure {
+    color: #e60012;
+}
+.calendar-week-list li {
+    float: left;
+    width: r(98);
+    height: r(28);
+    line-height: r(28);
+    text-align: center;
+    font-size: r(28);
+    color: #999;
+}
+.calendar-main {
+    position:absolute;
+    left: 0;
+    right: 0;
+    top: r(220);
+    bottom:0;
+    padding: 0 r(32) r(48);
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+.calendar-month-list li,.calendar-day li {
+    float: left;
+    width: r(98);
+    text-align: center;
+}
+.calendar-month-list li {
+    padding-top:r(10);
+    height: r(90);
+    line-height: r(90);
+    font-size: 0;
+}
+.first-month-list {
+    margin-top: r(-20);
+}
+.other-month-list li {
+    padding-top: r(2);
+}
+.calendar-day li {
+    position: relative;
+    height: r(82);
+    line-height: r(82);
+    margin-bottom: r(8);
+    color: #333;
+}
+.calendar-month-list .month-content {
+    display: inline-block;
+    vertical-align: middle;
+    height: r(30);
+    line-height: r(30);
+    padding: 0 r(12);
+    border-radius: r(30);
+    font-size: r(24);
+    font-weight: bold;
+    color: #fff;
+    background: #666;
+}
+.start-date span,.end-date span {
+    position: relative;
+    z-index: 2;
+    display: inline-block;
+    width: r(82);
+    height: r(82);
+    border-radius: 50%;
+    background: #e60012;
+    color: #fff;
+}
+.start-date::after {
+    content: '';
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 49%;
+    background: rgba(230, 0, 18, 0.5);
+}
+.end-date::after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 49%;
+    background: rgba(230, 0, 18, 0.5);
+}
+.secDate {
+    background: rgba(230, 0, 18, 0.5);
+}
+.secDate span {
+    color: #fff;
+}
+.error-mask {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background:rgba(0,0,0,.3);
+    z-index: 100;
+}
+.error-box {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: r(540);
+    height: r(220);
+    background: #fff;
+    border-radius: r(10);
+    text-align: center;
+}
+.rent-mindays {
+    height: r(32);
+    line-height: r(32);
+    margin-top: r(48);
+    font-size: r(32);
+    color: #333;
+
+}
+.rent-mindays :first-child {
+    color:#e60012;
+}
+.rent-info {
+    margin-top: r(16);
+    height: r(26);
+    line-height: r(26);
+    font-size: r(26);
+    color:#999;
+}
+.close-count-down {
+    margin-top: r(32);
+    height: r(32);
+    line-height: r(32);
+    font-size: r(32);
+    color:#ccc;
+}
+.slide-fade-error-enter-active {
+  transition: all .3s ease;
+}
+.slide-fade-error-leave-active {
+  transition: all .5s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-error-enter, .slide-fade-error-leave-to
+/* .slide-fade-leave-active for below version 2.1.8 */ {
+  transform: translateY(-10px);
+  opacity: 0;
+}
